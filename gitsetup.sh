@@ -22,3 +22,26 @@ git init
         remote = origin
         merge = refs/heads/main
 git config --global init.defaultBranch main
+
+# git clone op tweede PC - map mag er nog niet zijn:
+git clone git@github.com:rzondervan/flasker.git
+# daarna weer de virt directory vullen.
+
+#Start:
+    1  python
+    2  pip install
+    3  python --version
+    4  py --version
+    5  pwd
+    6  mkdir /c/flasker
+    7  cd /c/flasker/
+    8  python -m venv virt
+    9  source virt/Scripts/activate
+   10  clear
+   11  pip install flask # deze installeert een nwe virt-map
+   12  pip freeze
+   13  ls
+
+   #deactivate om virt uit te zetten. Daarna weer starten:
+   #source virt/Scripts/activate (of bin ipv Scripts)
+
