@@ -70,3 +70,8 @@ git pull
 # en verder:
 git push
 
+#Nieuwe regel in .gitignore?:
+git rm -rf --cached .
+git add .
+#This removes all files from the repository and adds 
+#them back (this time respecting the rules in your .gitignore).
