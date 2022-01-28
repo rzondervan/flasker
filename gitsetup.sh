@@ -48,6 +48,7 @@ git clone git@github.com:rzondervan/flasker.git
 
 #server starten: eerste keer
 export FLASK_ENV=development
+export FLASK_APP=hello.py
 
 #Geen virt-map kopiëren:
 #Maak: .gitignore in de repo-map. Inhoud:
