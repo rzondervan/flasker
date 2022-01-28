@@ -44,4 +44,23 @@ git clone git@github.com:rzondervan/flasker.git
 
    #deactivate om virt uit te zetten. Daarna weer starten:
    #source virt/Scripts/activate (of bin ipv Scripts)
+   #flask run  #server start
+
+#server starten: eerste keer
+export FLASK_ENV=development
+
+
+#Modify on computer 2 en push:
+git add .
+git commit -m 'second commit from Computer 2'
+git push -u origin main
+
+# Eerste keer moeten doen:
+git config --global user.email "rzondervan@gmail.com"
+
+
+#vanaf andere computer verder werken:
+git pull
+# en verder:
+git push
 
