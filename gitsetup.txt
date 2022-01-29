@@ -1,5 +1,25 @@
+#20220129 rzondervan
+#server starten, zie ./startsrv.sh #chmod +x startsrv.sh
+export FLASK_ENV=development
+export FLASK_APP=hello.py
+flask run
+
+source virt/Scripts/activate (of bin ipv Scripts)
+deactivate #om virt uit te zetten.
+
+#Modify on computer 2 en push:
+git add .
+git commit -m 'second commit from Computer 2'
+git push -u origin main
+
+#vanaf andere computer verder werken:
+git pull
+# en verder:
+git push
+
+
 # script to setup the git versioning
-# nooit gebruikt, wel copy per line naar cmdline
+# copy per line naar cmdline
 
 /bin/sh gitsetup.sh
 git config --global user.name "rzondervan"
@@ -36,19 +56,13 @@ git clone git@github.com:rzondervan/flasker.git
     6  mkdir /c/flasker
     7  cd /c/flasker/
     8  python -m venv virt
-    9  source virt/Scripts/activate
+    9  source virt/Scripts/activate 
+        (on chrome: source virt/bin/activate)
    10  clear
    11  pip install flask # deze installeert een nwe virt-map
    12  pip freeze
    13  ls
 
-   #deactivate om virt uit te zetten. Daarna weer starten:
-   #source virt/Scripts/activate (of bin ipv Scripts)
-   #flask run  #server start
-
-#server starten: eerste keer
-export FLASK_ENV=development
-export FLASK_APP=hello.py
 
 #Geen virt-map kopiëren:
 #Maak: .gitignore in de repo-map. Inhoud:
@@ -56,19 +70,6 @@ export FLASK_APP=hello.py
 
 virt/
 
-#Modify on computer 2 en push:
-git add .
-git commit -m 'second commit from Computer 2'
-git push -u origin main
-
-# Eerste keer moeten doen:
-git config --global user.email "rzondervan@gmail.com"
-
-
-#vanaf andere computer verder werken:
-git pull
-# en verder:
-git push
 
 #Nieuwe regel in .gitignore?:
 git rm -rf --cached .
