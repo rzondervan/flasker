@@ -1,11 +1,13 @@
-#20220129 rzondervan
+#20220201 rzondervan
+
+source virt/Scripts/activate (of bin ipv Scripts)
+deactivate #om virt uit te zetten.
+
 #server starten, zie ./startsrv.sh #chmod +x startsrv.sh
 export FLASK_ENV=development
 export FLASK_APP=hello.py
 flask run
 
-source virt/Scripts/activate (of bin ipv Scripts)
-deactivate #om virt uit te zetten.
 
 #Modify on computer 2 en push:
 git add .
