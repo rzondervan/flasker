@@ -1,4 +1,4 @@
 #!/bin/sh
 git add .
-git commit -m 'flask friday #6 gedaan - wtforms en messages'
+git commit -m 'flask friday #7 half js werkt niet'
 git push -u origin main
