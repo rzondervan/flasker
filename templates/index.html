@@ -8,21 +8,23 @@
 
 	<p>My name is {{ first_name }}</p>
 
-	<p>{{ stuff|striptags|title|trim }}</p>
+	<p>{{ stuff|title }}</p>
 
 	<h3>Favorite Pizza:</h3>
 
 	{% for topping in favorite_pizza %}
-
+		
 		{% if topping == 41 %}
-			{{ topping + 100}}<br/>
+			{{ topping + 100 }}<br/>
 		{% else %}
-			{{ topping }} <br/>
+			{{ topping }}<br/>
 		{% endif %}
 
+		
 	{% endfor %}
 
 	<br/><br/>
-	{{favorite_pizza.3 + 10}}
+	
+
 
 {% endblock %}
