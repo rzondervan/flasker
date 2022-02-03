@@ -87,3 +87,16 @@ git rm -rf --cached .
 git add .
 #This removes all files from the repository and adds 
 #them back (this time respecting the rules in your .gitignore).
+
+#Install Alchemy SQL DB wrapper:
+pip install flask-sqlalchemy
+
+#In hello.py file:
+
+
+#In Windows: winpty python
+python
+from hello import db
+db.create_all()
+exit()
+ls
