@@ -1,1 +1,1 @@
-document.getElementByID('demo').innerHTML = "This was created by Javasript";
+document.getElementByID('demo').innerHTML = "Dit is gemaakt met Javascript";

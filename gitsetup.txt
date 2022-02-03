@@ -1,6 +1,6 @@
 #20220202 rzondervan
 
-source virt/Scripts/activate (of bin ipv Scripts)
+source virt/Scripts/activate (of bin ipv Scripts op Chromebook)
 deactivate #om virt uit te zetten.
 
 #server starten, zie ./startsrv.sh #chmod +x startsrv.sh
