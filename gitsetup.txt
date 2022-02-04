@@ -25,7 +25,6 @@ git push
    ssh-keygen 
    cat ..... (de pubkey naar github kopiëren)
 
-
 # script to setup the git versioning
 # copy per line naar cmdline
 
@@ -67,7 +66,7 @@ git clone git@github.com:rzondervan/flasker.git
     9  source virt/Scripts/activate 
         (on chrome: source virt/bin/activate)
    10  clear
-   11  pip install flask # deze installeert een nwe virt-map
+   11  pip install flask # deze installeert een nwe virt-map in de vm
    12  pip freeze
    13  ls
 
@@ -92,11 +91,65 @@ git add .
 pip install flask-sqlalchemy
 
 #In hello.py file:
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+
+# Add Database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SECRET_KEY'] = "my super secret key that no one is supposed to know"
+# Initialize the Database
+db = SQLAlchemy(app)
+
+# Create Model
+class Users(db.Model):
+        id = db.Column(db.Integer, primary_key=True)
+        name = db.Column(db.String(200), nullable=False)
+        email = db.Column(db.String(120), nullable=False, unique=True)
+        date_added = db.Column(db.DateTime, default=datetime.utcnow)
+
+        # Create A String
+        def __repr__(self):
+                return '<Name %r>' % self.name
+
 
 
 #In Windows: winpty python
-python
+python #op Chromebook naar de python-command-prompt
 from hello import db
 db.create_all()
 exit()
 ls
+
+#Migratie naar MySQL
+ql#Win (en Lin-repos): mysql.com, Downloads, onderaan link: MYSQL Community (GPL) Downloads
+#op Chromebook zonder extra repo:
+#niet nodig: apt install mysql-common
+Howto install MySQL on a chromebook:
+To install the MySQL database, follow the steps below:
+Enable Linux support on your Chromebook. ...
+Launch the Terminal and execute the commands, sudo apt update 
+sudo apt install mariadb-server.
+To test that the MySQL database is working, run the commands, sudo mysql -u root -p
+Use the mysqladmin command-line utility to alter the MySQL/MariaDB password, using the following syntax:
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'password123';
+flush privileges;
+exit;
+Daarna aanmelden: sudo mysql -uroot -p
+
+#Install the mysql connector(s) for flask (vanuit vm, maar toch gedaan op chrombook na deactivate: geeft later 'no mule named 'mysql', dus nog een keer gedaan vanuit virt):
+pip install mysql-connector
+pip install mysql-connector-python
+pip install mysql-connector-python-rf
+
+maak create_db.py
+run: python create_db_py
+
+add Alchemy:
+werkt niet: pip install MySQLdb, wel:
+pip install pymysql
+pip install cryptography
+
+create db from model uit py-file:
+(winpty) python
+from hello import db
+db.create_all()
