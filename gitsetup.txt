@@ -121,7 +121,8 @@ exit()
 ls
 
 #Migratie naar MySQL
-ql#Win (en Lin-repos): mysql.com, Downloads, onderaan link: MYSQL Community (GPL) Downloads
+ql#Win (en Lin-repos (niet nodig gehad)): mysql.com, Downloads, onderaan link: MYSQL Community (GPL) Downloads.
+#op Windows eerst requirements installeren: Visual Studio (v2017 of 2019; 2022 werkt niet met mysql installer; Free van MS; zonder workloads; via robertz@outl), MySQL for Visual Studio (van mysql community)
 #op Chromebook zonder extra repo:
 #niet nodig: apt install mysql-common
 Howto install MySQL on a chromebook:
@@ -136,13 +137,13 @@ flush privileges;
 exit;
 Daarna aanmelden: sudo mysql -uroot -p
 
-#Install the mysql connector(s) for flask (vanuit vm, maar toch gedaan op chrombook na deactivate: geeft later 'no mule named 'mysql', dus nog een keer gedaan vanuit virt):
+#Install the mysql connector(s) for flask (vanuit vm, maar toch gedaan op chromebook na deactivate: geeft later 'no mule named 'mysql', dus nog een keer gedaan vanuit virt):
 pip install mysql-connector
 pip install mysql-connector-python
 pip install mysql-connector-python-rf
 
 maak create_db.py
-run: python create_db_py
+run: (winpty) python create_db.py
 
 add Alchemy:
 werkt niet: pip install MySQLdb, wel:
@@ -150,6 +151,9 @@ pip install pymysql
 pip install cryptography
 
 create db from model uit py-file:
-(winpty) python
+(winpty) python #win: module not found error from flask_sqlalchemy...
 from hello import db
 db.create_all()
+
+Win: Deze moest opnieuw. bij pip freeze ontbrak alchemy:
+pip install flask-sqlalchemy
